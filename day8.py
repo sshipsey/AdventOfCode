@@ -1,0 +1,1 @@
+print(sum((2 + s.count('"') + s.count('\\')) for s in open(r'C:\Development\AdventOfCode\inputs\day8.txt').read().splitlines()))
