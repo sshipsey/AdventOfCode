@@ -10,6 +10,11 @@ def day13(input):
   peopleLookup = {tuple([stringArr[0], stringArr[-1][:-1]]) : eval(operatorLookup[stringArr[2]] + stringArr[3]) for stringArr in inputArr} 
   allPeople = list(set([str[0] for str in inputArr] + [str[-1][:-1] for str in inputArr]))
 
+  # Part 2
+  peopleLookup.update({tuple([person, "Steven"]) : 0 for person in allPeople})
+  peopleLookup.update({tuple(["Steven", person]) : 0 for person in allPeople})
+  allPeople.append("Steven")
+  
   allPerms = permutations(allPeople)
   maxHappiness = -1
 
