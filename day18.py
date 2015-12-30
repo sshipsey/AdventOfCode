@@ -1,15 +1,13 @@
 def day18(input):
     grid = [[True if l == '#' else False for l in x] for x in [list(x) for x in input]]
 
-    gridCopy = grid[:]
-    testGrid(grid)
-    print(countLights(grid))
-    print("")
-    print("")
-    for _ in range(1):
+    gridCopy = [[False]*len(grid[0]) for _ in range(len(grid[0]))]
+    for _ in range(100):
       for y, row in enumerate(grid):
         for x, node in enumerate(row):
-          if (grid[y][x]):
+          if ((x == 0 and y == 0) or (x == 0 and y == len(grid[0]) - 1) or (x == len(grid[0]) - 1 and y == 0) or (x == len(grid[0]) - 1 and y == len(grid[0]) - 1)):
+            gridCopy[y][x] = True
+          elif (grid[y][x]):
             if (countNeighbors(grid, y, x) in [2, 3]):
               gridCopy[y][x] = True
             else:
@@ -19,11 +17,10 @@ def day18(input):
               gridCopy[y][x] = True
             else:
               gridCopy[y][x] = False
-      grid = gridCopy[:]
-      testGrid(grid)
-      print(countLights(grid))
-      print("")
-      print("")
+
+      grid = gridCopy.copy()
+      gridCopy = [[False]*len(grid[0]) for _ in range(len(grid[0]))]
+
       #neighborsGrid = [countNeighbors(grid, y, x) for y, x in ]
       #print(neighborsGrid)
               
@@ -55,5 +52,5 @@ def countLights(grid):
       if (z):
         count += 1
   return count
-input = open(r'C:\Development\AdventOfCode\inputs\day18test.txt').read().split('\n')
-day18(input)
+input = open(r'C:\Development\AdventOfCode\inputs\day18.txt').read().split('\n')
+print(day18(input))
