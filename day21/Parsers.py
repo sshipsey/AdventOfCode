@@ -43,4 +43,8 @@ def parseStore(store):
         elif (itemType == itemType.ring):
             ringSpecs = re.findall("(\w+ \+\d).*?(\d+).*?(\d+).*?(\d+)", line)
             rings.append(Ring(*ringSpecs[0]))
+
+    # append empty items as placeholder for non use
+    armors.append(Armor())
+    rings.append(Ring())
     return Store(weapons, armors, rings)

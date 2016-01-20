@@ -20,3 +20,10 @@ class Player:
           return self.rings[0]
         else:
           return Ring("", self.rings[0].cost + self.rings[1].cost, self.rings[0].damage + self.rings[1].damage, self.rings[0].armor + self.rings[1].armor)
+
+    def printLoadout(self):
+        retStr = "Weapon Damage: {}".format(self.weapon.damage)
+        retStr += "\n Armor armor: {}".format(self.armor.armor)
+        retStr += "\n Ring 1: {}".format(self.rings[0].name)
+        retStr += "\n Ring 2: {}".format(self.rings[1].name)
+        return retStr
