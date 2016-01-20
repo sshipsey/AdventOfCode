@@ -9,13 +9,12 @@ def startGame(storeStr, bossStr):
     store = parseStore(storeStr)
     
     # buy stuff
-    player = Player(store.weapons[0], store.armors[0], [])
-    print(player.effectiveArmor)
+    player = Player(store.weapons[3], store.armors[3], [])
     winner = battle(player, boss)
+    print("Cost: {}".format(player.weapon.cost + player.armor.cost + player.effectiveRing.cost))
     return winner
 
 def battle(player, boss):
-    print(player.effectiveArmor)
     while(player.hp > 0):
         #Player attack
         playerAttack = player.weapon.damage - boss.armor

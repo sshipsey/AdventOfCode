@@ -4,6 +4,7 @@ from Weapon import Weapon
 from Armor import Armor
 from Ring import Ring
 from Store import Store
+
 def parseBoss(bossStr):
     return [int(re.search("(?<=Hit Points: )\d+", bossStr).group(0)), \
     int(re.search("(?<=Damage: )\d+", bossStr).group(0)), \
