@@ -18,9 +18,9 @@ def parseStore(store):
     weapons = []
     armors = []
     rings = []
-    weaponRgx = re.compile("Weapons:")
-    armorRgx = re.compile("Armor:")
-    ringRgx = re.compile("Rings:")
+    weaponRgx = "Weapons:"
+    armorRgx = "Armor:"
+    ringRgx = "Rings:"
   
     # For each item in the store (or header)
     for line in store:
