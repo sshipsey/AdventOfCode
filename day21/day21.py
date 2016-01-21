@@ -60,7 +60,7 @@ def battle(player, boss):
 
     while(player.hp > 0):
         #Player attack
-        playerAttack = player.weapon.damage - boss.armor
+        playerAttack = player.weapon.damage + player.effectiveRing.damage - boss.armor
 
         #Boss attack
         bossAttack = boss.damage - player.effectiveArmor
